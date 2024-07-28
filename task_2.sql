@@ -28,21 +28,21 @@ CREATE TABLE IF NOT EXISTS customers (
 );
 
 -- Create table for Orders
-CREATE TABLE IF NOT EXISTS orders (
-    order_id INT AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS Orders (
+    Order_id INT AUTO_INCREMENT,
     customer_id INT,
     order_date DATE,
-    PRIMARY KEY (order_id),
+    PRIMARY KEY (Order_id),
     FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
 );
 
 -- Create table for Order Details
 CREATE TABLE IF NOT EXISTS Order_details (
     orderdetailid INT AUTO_INCREMENT,
-    order_id INT,
+    Order_id INT,
     book_id INT,
     quantity DOUBLE,
     PRIMARY KEY (orderdetailid),
-    FOREIGN KEY (order_id) REFERENCES Orders(order_id),
+    FOREIGN KEY (Order_id) REFERENCES Orders(Order_id),
     FOREIGN KEY (book_id) REFERENCES Books(book_id)
 );
