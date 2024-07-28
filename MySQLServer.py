@@ -11,10 +11,10 @@ def create_database():
         )
         if connection.is_connected():
             cursor = connection.cursor()
-            # This statement ensures the database is created if it does not exist
+            # This statement ensures the database is created if it does not exist, avoiding SELECT or SHOW
             cursor.execute("CREATE DATABASE IF NOT EXISTS alx_book_store")
             print("Database 'alx_book_store' created successfully!")
-        cursor.close()
+            cursor.close()
         connection.close()
     except Error as e:
         print(f"Error: {e}")
